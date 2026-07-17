@@ -44,31 +44,31 @@
 > >
 > > ### Sign-in
 > >
-> > [!](./screenshots/signin.png)
+> > > > ![Sign-in](./screenshots/signin.png)
 > >
 > > ### Recommendations by users
 > >
-> > [](./screenshots/language.png)
+> > > > ![Recommendations](./screenshots/language.png)
 > >
 > > ### Home Page
 > >
-> > [](./screenshots/home.png)
+> > > > ![Home Page](./screenshots/home.png)
 > >
 > > ### Made for you
 > >
-> > [](./screenshots/list.png)
+> > > > ![Made for you](./screenshots/list.png)
 > >
 > > ### Search Page
 > >
-> > [](./screenshots/search.png)
+> > > > ![Search Page](./screenshots/search.png)
 > >
 > > ### Library
 > >
-> > [](./screenshots/library.png)
+> > > > ![Library](./screenshots/library.png)
 > >
 > > ### Package
 > >
-> > [](./screenshots/price.png)
+> > > > ![Package](./screenshots/price.png)
 > >
 > > ## 🔍 Hardest Part
 > >
