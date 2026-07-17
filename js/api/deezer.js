@@ -28,9 +28,20 @@ function fetchDeezerJSONP(urlPath, params = {}) {
   });
 }
 
+function getAbsoluteLocalPath(relativePath) {
+  let base = window.location.href.split('?')[0].split('#')[0];
+  if (!base.endsWith('/') && !base.toLowerCase().endsWith('.html') && !base.toLowerCase().endsWith('.htm')) {
+    base += '/';
+  } else {
+    base = base.substring(0, base.lastIndexOf('/') + 1);
+  }
+  return new URL(relativePath, base).href;
+}
+
 async function _loadLocal(path) {
-  const res = await fetch(path);
-  if (!res.ok) throw new Error(`Failed loading ${path}`);
+  const resolved = getAbsoluteLocalPath(path);
+  const res = await fetch(resolved);
+  if (!res.ok) throw new Error(`Failed loading ${resolved}`);
   return res.json();
 }
 
