@@ -1,0 +1,62 @@
+[
+  {
+    "id": "p1",
+    "title": "Coding Mix",
+    "desc": "Deep focus beats for flow state",
+    "cover": "https://picsum.photos/seed/pl-coding/500/500"
+  },
+  {
+    "id": "p2",
+    "title": "Study Focus",
+    "desc": "Quiet piano and ambient loops",
+    "cover": "https://picsum.photos/seed/pl-study/500/500"
+  },
+  {
+    "id": "p3",
+    "title": "Tamil Vibes",
+    "desc": "The freshest Kollywood hits",
+    "cover": "https://picsum.photos/seed/pl-tamil/500/500"
+  },
+  {
+    "id": "p4",
+    "title": "Night Drive",
+    "desc": "Synthwave for empty highways",
+    "cover": "https://picsum.photos/seed/pl-night/500/500"
+  },
+  {
+    "id": "p5",
+    "title": "Rainy Mood",
+    "desc": "Soft rain, softer songs",
+    "cover": "https://picsum.photos/seed/pl-rain/500/500"
+  },
+  {
+    "id": "p6",
+    "title": "Workout Beast",
+    "desc": "High tempo bangers to push through",
+    "cover": "https://picsum.photos/seed/pl-workout/500/500"
+  },
+  {
+    "id": "p7",
+    "title": "Morning Coffee",
+    "desc": "Warm acoustic to start the day",
+    "cover": "https://picsum.photos/seed/pl-morning/500/500"
+  },
+  {
+    "id": "p8",
+    "title": "Indie Discovery",
+    "desc": "Hidden gems from around the world",
+    "cover": "https://picsum.photos/seed/pl-indie/500/500"
+  },
+  {
+    "id": "p9",
+    "title": "Chill Hits",
+    "desc": "Kick back with today's chill picks",
+    "cover": "https://picsum.photos/seed/pl-chill/500/500"
+  },
+  {
+    "id": "p10",
+    "title": "Pop Rising",
+    "desc": "Tomorrow's biggest pop today",
+    "cover": "https://picsum.photos/seed/pl-pop/500/500"
+  }
+]

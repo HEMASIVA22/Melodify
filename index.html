@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Melodify — Music Beyond Boundaries</title>
+    <meta
+      name="description"
+      content="Melodify is a premium personalized music streaming experience. Discover playlists, artists, and moods crafted for you."
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/player.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/onboarding.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/library.css" />
+    <link rel="stylesheet" href="css/premium.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_ZmxlZXQtbW9yYXktNjYuY2xlcmsuYWNjb3VudHMuZGV2JA"
+      src="https://fleet-moray-66.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <!-- ================= SPLASH ================= -->
+    <section id="splash" class="screen splash">
+      <div class="splash-inner fade-in">
+        <div class="logo-mark">
+          <span class="wave"></span><span class="wave"></span
+          ><span class="wave"></span>
+        </div>
+        <h1 class="brand">Melodify</h1>
+        <p class="tagline">Music Beyond Boundaries</p>
+      </div>
+    </section>
+
+    <!-- ================= AUTH ================= -->
+    <section id="auth" class="screen auth hidden">
+      <div id="clerk-signin-container" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;"></div>
+    </section>
+
+    <!-- ================= ONBOARDING 1: LANGUAGES ================= -->
+    <section id="onb1" class="screen onboarding hidden">
+      <header class="onb-head">
+        <h2>Choose Your Preferred Languages</h2>
+        <p class="muted">
+          Pick as many as you love — we'll tailor recommendations.
+        </p>
+      </header>
+      <div class="chip-grid" id="langChips"></div>
+      <div class="onb-actions">
+        <button class="btn btn-primary" id="lang-continue">Continue</button>
+      </div>
+    </section>
+
+    <!-- ================= ONBOARDING 2: ARTISTS ================= -->
+    <section id="onb2" class="screen onboarding hidden">
+      <header class="onb-head">
+        <h2>Choose Your Preferred Singers</h2>
+        <p class="muted"><span id="artistCount">0</span> selected</p>
+      </header>
+      <div class="onb-tabs" id="artistTabs" style="display: none;">
+        <button class="tab active" data-tab="For You">For You</button>
+        <button class="tab" data-tab="Tamil">Tamil</button>
+        <button class="tab" data-tab="International">International</button>
+      </div>
+      <div class="search-wrap">
+        <input id="artistSearch" type="search" placeholder="Search singers…" />
+      </div>
+      <div class="artist-grid" id="artistGrid"></div>
+      <div class="onb-actions sticky">
+        <button class="btn btn-primary" id="artist-done" disabled>Done</button>
+      </div>
+    </section>
+
+    <!-- ================= ONBOARDING 3: MOODS & GENRES ================= -->
+    <section id="onb3" class="screen onboarding hidden">
+      <header class="onb-head">
+        <h2>What's Your Vibe Today?</h2>
+        <p class="muted">
+          Select genres or moods to personalize your recommendations.
+        </p>
+      </header>
+      <div class="chip-grid" id="moodChips"></div>
+      <div class="onb-actions">
+        <button class="btn btn-primary" id="mood-continue">Finish & Let's Play</button>
+      </div>
+    </section>
+
+    <!-- ================= APP SHELL ================= -->
+    <div id="app" class="app hidden">
+      <!-- Sidebar (fixed on tablet/desktop) -->
+      <aside class="sidebar" id="sidebar">
+        <div class="side-brand">
+          <div class="logo-mark small">
+            <span class="wave"></span><span class="wave"></span
+            ><span class="wave"></span>
+          </div>
+          <span>Melodify</span>
+        </div>
+        <nav class="side-nav">
+          <a class="side-link active" data-view="home">🏠 <span>Home</span></a>
+          <a class="side-link" data-view="search">🔍 <span>Search</span></a>
+          <a class="side-link" data-view="library"
+            >📚 <span>Your Library</span></a
+          >
+          <a class="side-link" data-view="create">➕ <span>Create</span></a>
+          <a class="side-link" data-view="premium">✨ <span>Premium</span></a>
+          
+          <div class="sidebar-header">Music Sections</div>
+          <a class="side-link" data-music-section="tamil">🎵 <span>Tamil Hits</span></a>
+          <a class="side-link" data-music-section="podcasts">🎙️ <span>Podcasts</span></a>
+          <a class="side-link" data-music-section="trending">🔥 <span>Trending</span></a>
+          <a class="side-link" data-music-section="liked">❤️ <span>Liked Songs</span></a>
+        </nav>
+        <div class="side-footer">
+          <p class="muted xs">© Melodify</p>
+        </div>
+      </aside>
+
+      <!-- Main scrollable area -->
+      <main class="main" id="main">
+        <!-- Top bar -->
+        <header class="topbar">
+          <button class="avatar" id="profileBtn" aria-label="Profile">
+            <span id="avatarInitials">M</span>
+          </button>
+          <div class="greeting" id="greeting">Good evening</div>
+          <div class="top-actions" style="position: relative;">
+            <button class="icon-btn" id="notiBtn" title="Notifications">🔔</button>
+            
+            <!-- Notifications menu -->
+            <div class="notifications-menu hidden" id="notiMenu">
+              <h3>Notifications</h3>
+              <div class="notification-item">
+                🎉 Welcome to Melodify! Start exploring your personalized dashboard.
+                <div class="time">Just now</div>
+              </div>
+              <div class="notification-item">
+                🎵 Hot Releases: The latest Tamil hits are now streaming. Check out our Tamil Hits section!
+                <div class="time">2 hours ago</div>
+              </div>
+              <div class="notification-item">
+                ✨ Go Premium at 50% off! Unlock ad-free listening and hi-fi audio.
+                <div class="time">1 day ago</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile menu -->
+          <div class="profile-menu hidden" id="profileMenu">
+            <button data-menu="account">My Account</button>
+            <button data-menu="activity">Recent Activity</button>
+            <button data-menu="updates">Updates</button>
+            <button data-menu="settings">Settings</button>
+            <button data-menu="premium">Premium</button>
+            <button data-menu="logout" class="danger">Logout</button>
+          </div>
+        </header>
+
+        <!-- ===== HOME VIEW ===== -->
+        <section class="view active" id="view-home">
+          <!-- Hero -->
+          <div class="hero">
+            <div class="hero-media">
+              <img
+                src="assets/hero.png"
+                alt="A listener enjoying music in a cozy neon-lit room"
+              />
+              <div class="hero-glow"></div>
+              <div class="floating-notes">
+                <span>♪</span><span>♫</span><span>♩</span><span>♬</span>
+              </div>
+            </div>
+            <div class="hero-content glass">
+              <h1>Feel Every Beat</h1>
+              <p>
+                Discover music, playlists and recommendations tailored for you.
+              </p>
+              <div class="hero-cta">
+                <button class="btn btn-primary" id="startListening">
+                  Start Listening
+                </button>
+                <button class="btn btn-outline" id="exploreMusic">
+                  Explore Music
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Made For You -->
+          <section class="block">
+            <div class="block-head"><h2>Made For You</h2></div>
+            <div class="mfy-grid" id="madeForYou"></div>
+          </section>
+
+          <!-- Horizontal rails -->
+          <section class="block">
+            <div class="block-head"><h2>Recommended Stations</h2></div>
+            <div class="rail" id="rail-stations"></div>
+          </section>
+          <section class="block">
+            <div class="block-head"><h2>Recommended For Today</h2></div>
+            <div class="rail" id="rail-today"></div>
+          </section>
+          <section class="block">
+            <div class="block-head"><h2>Popular Albums</h2></div>
+            <div class="rail" id="rail-albums"></div>
+          </section>
+          <section class="block">
+            <div class="block-head"><h2>Popular Singles</h2></div>
+            <div class="rail" id="rail-singles"></div>
+          </section>
+          <section class="block">
+            <div class="block-head"><h2>Popular Radio</h2></div>
+            <div class="rail" id="rail-radio"></div>
+          </section>
+          <section class="block">
+            <div class="block-head"><h2>Editor's Picks</h2></div>
+            <div class="rail" id="rail-editor"></div>
+          </section>
+
+          <!-- Recently played -->
+          <section class="block">
+            <div class="block-head"><h2>Recently Played</h2></div>
+            <div class="rail" id="rail-recent">
+              <p class="muted small pad">
+                Nothing yet — press play to start your history.
+              </p>
+            </div>
+          </section>
+
+          <!-- Listening stats -->
+          <section class="block stats-block">
+            <div class="block-head"><h2>Listening Stats</h2></div>
+            <div class="stats-grid">
+              <div class="stat-card glass">
+                <span class="stat-num" data-count="0" id="statSongs">0</span
+                ><span class="stat-label">Songs Played</span>
+              </div>
+              <div class="stat-card glass">
+                <span class="stat-num" id="statFav">—</span
+                ><span class="stat-label">Favorite Playlist</span>
+              </div>
+              <div class="stat-card glass">
+                <span class="stat-num" data-count="0" id="statMins">0</span
+                ><span class="stat-label">Minutes Listened</span>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- ===== SEARCH VIEW ===== -->
+        <section class="view" id="view-search">
+          <div class="search-header">
+            <div class="avatar sm"><span>M</span></div>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Songs, artists, playlists…"
+            />
+            <button class="icon-btn" title="Scan">📷</button>
+          </div>
+          <div class="chip-row" id="searchFilters">
+            <button class="chip active" data-filter="All">All</button>
+            <button class="chip" data-filter="Music">Music</button>
+            <button class="chip" data-filter="Podcasts">Podcasts</button>
+            <button class="chip" data-filter="Live">Live Events</button>
+            <button class="chip" data-filter="Tamil">Tamil</button>
+            <button class="chip" data-filter="Malayalam">Malayalam</button>
+            <button class="chip" data-filter="English">English</button>
+            <button class="chip" data-filter="Trending">Trending</button>
+            <button class="chip" data-filter="Pop">Pop</button>
+            <button class="chip" data-filter="Rock">Rock</button>
+            <button class="chip" data-filter="Hip-Hop">Hip-Hop</button>
+          </div>
+          <h3 class="section-title">Browse all</h3>
+          <div class="cat-grid" id="catGrid"></div>
+          <h3
+            class="section-title"
+            id="searchResultsTitle"
+            style="display: none"
+          >
+            Results
+          </h3>
+          <div class="results" id="searchResults"></div>
+        </section>
+
+        <!-- ===== LIBRARY VIEW ===== -->
+        <section class="view" id="view-library">
+          <h2 class="view-title">Your Library</h2>
+          <div class="lib-tabs">
+            <button class="chip active" data-lib="Playlists">Playlists</button>
+            <button class="chip" data-lib="Artists">Artists</button>
+            <button class="chip" data-lib="Albums">Albums</button>
+            <button class="chip" data-lib="Podcasts">Podcasts</button>
+            <button class="chip" data-lib="Liked">Liked Songs</button>
+          </div>
+          <div class="lib-actions">
+            <button class="btn btn-outline sm" data-lib-add="Artist">
+              + Add Artist
+            </button>
+            <button class="btn btn-outline sm" data-lib-add="Podcast">
+              + Add Podcast
+            </button>
+            <button class="btn btn-outline sm" data-lib-add="Event">
+              + Add Event
+            </button>
+            <button class="btn btn-outline sm" data-lib-add="News">
+              + Add News
+            </button>
+            <button class="btn btn-primary sm" id="libCreatePlaylist">
+              + Create Playlist
+            </button>
+          </div>
+          <div class="lib-list" id="libList"></div>
+        </section>
+
+        <!-- ===== CREATE VIEW ===== -->
+        <section class="view" id="view-create">
+          <h2 class="view-title">Create</h2>
+          <div class="create-grid">
+            <button class="create-card glass" data-create="playlist">
+              <h3>Create Playlist</h3>
+              <p>A blank slate you fill in.</p>
+            </button>
+            <button class="create-card glass" data-create="collab">
+              <h3>Collaborative Playlist</h3>
+              <p>Build with friends in real time.</p>
+            </button>
+            <button class="create-card glass" data-create="mood">
+              <h3>Mood Playlist</h3>
+              <p>Auto-generated from your vibes.</p>
+            </button>
+          </div>
+          <form id="playlistForm" class="playlist-form hidden">
+            <h3>New Playlist</h3>
+            <input
+              type="text"
+              id="plName"
+              placeholder="Playlist name"
+              required
+            />
+            <textarea
+              id="plDesc"
+              placeholder="Description (optional)"
+            ></textarea>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+        </section>
+
+        <!-- ===== PREMIUM VIEW ===== -->
+        <section class="view" id="view-premium">
+          <div class="premium-hero glass">
+            <div>
+              <h2>Melodify Premium</h2>
+              <p>Ad-free listening. Offline downloads. Studio-quality sound.</p>
+              <button class="btn btn-primary" id="tryPremium">
+                Try Premium
+              </button>
+            </div>
+          </div>
+          <div class="plan-grid">
+            <div class="plan glass">
+              <h3>Student</h3>
+              <p class="price">₹59<span>/mo</span></p>
+              <ul>
+                <li>Ad-free</li>
+                <li>Offline</li>
+                <li>Discount verified</li>
+              </ul>
+              <button class="btn btn-outline" data-plan="Student">
+                Choose
+              </button>
+            </div>
+            <div class="plan glass featured">
+              <h3>Standard</h3>
+              <p class="price">₹119<span>/mo</span></p>
+              <ul>
+                <li>1 account</li>
+                <li>Ad-free</li>
+                <li>Offline</li>
+              </ul>
+              <button class="btn btn-primary" data-plan="Standard">
+                Choose
+              </button>
+            </div>
+            <div class="plan glass">
+              <h3>Platinum</h3>
+              <p class="price">₹179<span>/mo</span></p>
+              <ul>
+                <li>Lossless HiFi</li>
+                <li>Spatial audio</li>
+                <li>Priority events</li>
+              </ul>
+              <button class="btn btn-outline" data-plan="Platinum">
+                Choose
+              </button>
+            </div>
+            <div class="plan glass">
+              <h3>Family</h3>
+              <p class="price">₹199<span>/mo</span></p>
+              <ul>
+                <li>Up to 6 accounts</li>
+                <li>Kid-safe mode</li>
+                <li>Ad-free</li>
+              </ul>
+              <button class="btn btn-outline" data-plan="Family">Choose</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PAYMENT VIEW ===== -->
+        <section class="view" id="view-payment">
+          <h2 class="view-title">Payment</h2>
+          <p class="muted">Plan: <b id="payPlan">Standard</b></p>
+          <div class="pay-methods">
+            <button class="pay-method glass" data-pay="UPI">UPI</button>
+            <button class="pay-method glass" data-pay="Credit">
+              Credit Card
+            </button>
+            <button class="pay-method glass" data-pay="Debit">
+              Debit Card
+            </button>
+            <button class="pay-method glass" data-pay="NetBanking">
+              Net Banking
+            </button>
+          </div>
+          <div id="paySuccess" class="pay-success hidden">
+            <div class="check">✓</div>
+            <h3>Payment Successful</h3>
+            <p class="muted">Welcome to Melodify Premium.</p>
+            <button class="btn btn-primary" id="paySuccessOk">Continue</button>
+          </div>
+        </section>
+
+        <div class="main-spacer"></div>
+      </main>
+
+      <!-- ================= STICKY PLAYER ================= -->
+      <div class="player" id="player">
+        <div class="player-track">
+          <img
+            id="pCover"
+            src="https://picsum.photos/seed/placeholder/100/100"
+            alt=""
+          />
+          <div class="pt-meta">
+            <div id="pTitle" class="pt-title">Not playing</div>
+            <div id="pArtist" class="pt-artist">—</div>
+          </div>
+        </div>
+        <div class="player-controls">
+          <div class="control-row">
+            <button class="ctrl" id="prevBtn" title="Previous">⏮</button>
+            <button class="ctrl play" id="playBtn" title="Play">▶</button>
+            <button class="ctrl" id="nextBtn" title="Next">⏭</button>
+          </div>
+          <div class="progress-row">
+            <span class="time" id="curTime">0:00</span>
+            <div class="progress" id="progressBar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="time" id="durTime">0:00</span>
+          </div>
+        </div>
+        <div class="player-extra">
+          <button class="ctrl" id="muteBtn" title="Mute">🔊</button>
+          <input type="range" id="volSlider" min="0" max="100" value="80" />
+        </div>
+        <audio id="audio" preload="metadata"></audio>
+      </div>
+
+      <!-- ================= BOTTOM NAV (mobile) ================= -->
+      <nav class="bottom-nav" id="bottomNav">
+        <button class="bn-item active" data-view="home">
+          <span>🏠</span><small>Home</small>
+        </button>
+        <button class="bn-item" data-view="search">
+          <span>🔍</span><small>Search</small>
+        </button>
+        <button class="bn-item" data-view="library">
+          <span>📚</span><small>Library</small>
+        </button>
+        <button class="bn-item" data-view="create">
+          <span>➕</span><small>Create</small>
+        </button>
+        <button class="bn-item" data-view="premium">
+          <span>✨</span><small>Premium</small>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/api/deezer.js"></script>
+    <script src="js/greeting.js"></script>
+    <script src="js/onboarding.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/premium.js"></script>
+    <script src="js/recently-played.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

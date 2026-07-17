@@ -1,0 +1,146 @@
+[
+  {
+    "id": "a1",
+    "name": "Anirudh",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/anirudh/300/300"
+  },
+  {
+    "id": "a2",
+    "name": "AR Rahman",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/arrahman/300/300"
+  },
+  {
+    "id": "a3",
+    "name": "GV Prakash",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/gvprakash/300/300"
+  },
+  {
+    "id": "a4",
+    "name": "Hip Hop Tamizha",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/hht/300/300"
+  },
+  {
+    "id": "a5",
+    "name": "Harris Jayaraj",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/harris/300/300"
+  },
+  {
+    "id": "a6",
+    "name": "Yuvan Shankar Raja",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/yuvan/300/300"
+  },
+  {
+    "id": "a7",
+    "name": "D Imman",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/dimman/300/300"
+  },
+  {
+    "id": "a8",
+    "name": "Santhosh Narayanan",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/santhosh/300/300"
+  },
+  {
+    "id": "a9",
+    "name": "Ilaiyaraaja",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/ilaiya/300/300"
+  },
+  {
+    "id": "a10",
+    "name": "SP Balasubrahmanyam",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/spb/300/300"
+  },
+  {
+    "id": "a11",
+    "name": "Sid Sriram",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/sid/300/300"
+  },
+  {
+    "id": "a12",
+    "name": "Shreya Ghoshal",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/shreya/300/300"
+  },
+  {
+    "id": "a13",
+    "name": "Vijay Prakash",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/vijayp/300/300"
+  },
+  {
+    "id": "a14",
+    "name": "Karthik",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/karthik/300/300"
+  },
+  {
+    "id": "a15",
+    "name": "Sean Roldan",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/sean/300/300"
+  },
+  {
+    "id": "a16",
+    "name": "Ananya Bhat",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/ananya/300/300"
+  },
+  {
+    "id": "a17",
+    "name": "Deva",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/deva/300/300"
+  },
+  {
+    "id": "a18",
+    "name": "Bharadwaj",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/bharadwaj/300/300"
+  },
+  {
+    "id": "a19",
+    "name": "Vidyasagar",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/vidya/300/300"
+  },
+  {
+    "id": "a20",
+    "name": "S Thaman",
+    "tag": "Tamil",
+    "img": "https://picsum.photos/seed/thaman/300/300"
+  },
+  {
+    "id": "a21",
+    "name": "The Weeknd",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/weeknd/300/300"
+  },
+  {
+    "id": "a22",
+    "name": "Dua Lipa",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/dua/300/300"
+  },
+  {
+    "id": "a23",
+    "name": "Coldplay",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/coldplay/300/300"
+  },
+  {
+    "id": "a24",
+    "name": "Billie Eilish",
+    "tag": "International",
+    "img": "https://picsum.photos/seed/billie/300/300"
+  }
+]

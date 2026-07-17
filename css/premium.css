@@ -1,0 +1,105 @@
+/* Premium + Payment */
+.premium-hero {
+  padding: 40px 24px;
+  margin: 12px 0 24px;
+  background:
+    radial-gradient(
+      500px 300px at 20% 30%,
+      rgba(29, 185, 84, 0.25),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #0f2818, #0a0a0a);
+}
+.premium-hero h2 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+.premium-hero p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 10px 0 20px;
+  max-width: 44ch;
+}
+
+.plan-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.plan {
+  padding: 24px;
+}
+.plan.featured {
+  outline: 2px solid var(--accent);
+}
+.plan h3 {
+  font-family: var(--font-display);
+}
+.plan .price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+.plan .price span {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.plan ul li {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.plan ul li::before {
+  content: "✓ ";
+  color: var(--accent);
+}
+.plan .btn {
+  width: 100%;
+}
+
+/* Payment */
+.pay-methods {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 12px;
+}
+.pay-method {
+  padding: 24px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.pay-method:hover {
+  transform: translateY(-2px);
+}
+.pay-success {
+  text-align: center;
+  margin-top: 40px;
+  padding: 40px 20px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  animation: scaleIn 0.35s ease;
+}
+.pay-success .check {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #000;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0 10px 40px rgba(29, 185, 84, 0.5);
+}

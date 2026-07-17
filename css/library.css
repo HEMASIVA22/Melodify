@@ -1,0 +1,97 @@
+/* Library + Create */
+.lib-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.lib-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.lib-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lib-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--card);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+.lib-item:hover {
+  background: var(--card-2);
+}
+.lib-item .thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #1db954, #0a5c2e);
+  display: grid;
+  place-items: center;
+  color: #000;
+  font-weight: 700;
+}
+.lib-item h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.lib-item .sub {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Create */
+.create-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: 24px;
+}
+.create-card {
+  padding: 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.create-card:hover {
+  transform: translateY(-3px);
+}
+.create-card h3 {
+  margin-bottom: 8px;
+}
+.create-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.playlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+}
+.playlist-form input,
+.playlist-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+.playlist-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "s1",
+    "title": "Night Drive",
+    "artist": "The Midnight",
+    "cover": "https://picsum.photos/seed/nightdrive/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/10/25/audio_9c2c1c2e8f.mp3",
+    "duration": 214
+  },
+  {
+    "id": "s2",
+    "title": "Coding Mix",
+    "artist": "Lo-Fi Collective",
+    "cover": "https://picsum.photos/seed/coding/400/400",
+    "src": "https://cdn.pixabay.com/audio/2023/07/30/audio_e0908f7d9f.mp3",
+    "duration": 180
+  },
+  {
+    "id": "s3",
+    "title": "Rainy Mood",
+    "artist": "Aurora",
+    "cover": "https://picsum.photos/seed/rainy/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/03/15/audio_5c3ef61c30.mp3",
+    "duration": 195
+  },
+  {
+    "id": "s4",
+    "title": "Tamil Vibes",
+    "artist": "Anirudh",
+    "cover": "https://picsum.photos/seed/tamilvibes/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/08/02/audio_2dde668a25.mp3",
+    "duration": 220
+  },
+  {
+    "id": "s5",
+    "title": "Workout Beast",
+    "artist": "Pulse",
+    "cover": "https://picsum.photos/seed/workout/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/05/16/audio_1808fbf07a.mp3",
+    "duration": 168
+  },
+  {
+    "id": "s6",
+    "title": "Study Focus",
+    "artist": "Deep Waves",
+    "cover": "https://picsum.photos/seed/study/400/400",
+    "src": "https://cdn.pixabay.com/audio/2023/03/22/audio_25f2b1e4d1.mp3",
+    "duration": 240
+  },
+  {
+    "id": "s7",
+    "title": "Sunset Boulevard",
+    "artist": "Aria",
+    "cover": "https://picsum.photos/seed/sunset/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/10/30/audio_347111d564.mp3",
+    "duration": 205
+  },
+  {
+    "id": "s8",
+    "title": "Neon Dreams",
+    "artist": "Synthwave",
+    "cover": "https://picsum.photos/seed/neon/400/400",
+    "src": "https://cdn.pixabay.com/audio/2022/11/22/audio_febc508a42.mp3",
+    "duration": 190
+  }
+]

@@ -1,0 +1,65 @@
+/* Sidebar (visible tablet+) */
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  padding: 20px 14px;
+  background: #000;
+  border-right: 1px solid var(--border);
+  z-index: 15;
+  flex-direction: column;
+}
+.side-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 8px 10px 20px;
+}
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.side-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+.side-link.active {
+  background: rgba(29, 185, 84, 0.12);
+  color: #fff;
+}
+.side-footer {
+  margin-top: auto;
+  padding: 12px;
+}
+
+@media (min-width: 900px) {
+  .sidebar {
+    display: flex;
+  }
+  .main {
+    margin-left: var(--sidebar-w);
+  }
+  .player {
+    left: var(--sidebar-w) !important;
+  }
+}
