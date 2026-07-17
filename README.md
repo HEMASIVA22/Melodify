@@ -44,7 +44,7 @@
 > >
 > > ### Sign-in
 > >
-> > [](./screenshots/signin.png)
+> > [!](./screenshots/signin.png)
 > >
 > > ### Recommendations by users
 > >
